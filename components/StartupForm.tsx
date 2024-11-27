@@ -77,73 +77,93 @@ const StartupForm = () => {
   });
 
   return (
-    <form action={formAction} className="startup-form">
+    <form
+      action={formAction}
+      className="px-6 my-5 mx-auto space-y-8 max-w-2xl bg-transparent rounded-lg border md: min-w-[75%] border-blue-500 shadow-xl shadow-current"
+    >
       <div>
-        <label htmlFor="title" className="startup-form_label">
+        <label
+          htmlFor="title"
+          className="ml-3 font-bold text-neutral-300 text-[18px]"
+        >
           Title
         </label>
         <Input
           id="title"
           name="title"
-          className="startup-form_input"
+          className="py-7 px-5 mt-3 font-semibold rounded-lg hover:border-blue-500 text-b border-[1px] border-white/[0.5] text-[18px] placeholder:text-[25px] placeholder:font-medium placeholder:text-black-300"
           required
           placeholder="Startup Title"
         />
 
-        {errors.title && <p className="startup-form_error">{errors.title}</p>}
+        {errors.title && (
+          <p className="mt-2 ml-5 text-red-500">{errors.title}</p>
+        )}
       </div>
 
       <div>
-        <label htmlFor="description" className="startup-form_label">
+        <label
+          htmlFor="description"
+          className="ml-3 font-bold text-neutral-300 text-[18px]"
+        >
           Description
         </label>
         <Textarea
           id="description"
           name="description"
-          className="startup-form_textarea"
+          className="p-5 mt-3 font-semibold rounded-lg border-white/[.50] text-neutral-50 border-[2px] text-[18px] placeholder:text-black-300"
           required
           placeholder="Startup Description"
         />
 
         {errors.description && (
-          <p className="startup-form_error">{errors.description}</p>
+          <p className="mt-2 ml-5 text-red-500">{errors.description}</p>
         )}
       </div>
 
       <div>
-        <label htmlFor="category" className="startup-form_label">
+        <label
+          htmlFor="category"
+          className="ml-3 font-bold text-neutral-300 text-[18px]"
+        >
           Category
         </label>
         <Input
           id="category"
           name="category"
-          className="startup-form_input"
+          className="py-7 px-5 mt-3 font-semibold rounded-lg hover:border-blue-500 text-b border-[1px] border-white/[0.5] text-[18px] placeholder:text-[25px] placeholder:font-medium placeholder:text-black-300"
           required
           placeholder="Startup Category (Tech, Health, Education...)"
         />
 
         {errors.category && (
-          <p className="startup-form_error">{errors.category}</p>
+          <p className="mt-2 ml-5 text-red-500">{errors.category}</p>
         )}
       </div>
 
       <div>
-        <label htmlFor="link" className="startup-form_label">
+        <label
+          htmlFor="link"
+          className="ml-3 font-bold text-neutral-300 text-[18px]"
+        >
           Image URL
         </label>
         <Input
           id="link"
           name="link"
-          className="startup-form_input"
+          className="py-7 px-5 mt-3 font-semibold rounded-lg hover:border-blue-500 text-b border-[1px] border-white/[0.5] text-[18px] placeholder:text-[25px] placeholder:font-medium placeholder:text-black-300"
           required
           placeholder="Startup Image URL"
         />
 
-        {errors.link && <p className="startup-form_error">{errors.link}</p>}
+        {errors.link && <p className="mt-2 ml-5 text-red-500">{errors.link}</p>}
       </div>
 
       <div data-color-mode="light">
-        <label htmlFor="pitch" className="startup-form_label">
+        <label
+          htmlFor="pitch"
+          className="ml-3 font-bold text-neutral-300 text-[18px]"
+        >
           Pitch
         </label>
 
@@ -153,7 +173,7 @@ const StartupForm = () => {
           id="pitch"
           preview="edit"
           height={300}
-          style={{ borderRadius: 20, overflow: "hidden" }}
+          style={{ borderRadius: 10, overflow: "hidden" }}
           textareaProps={{
             placeholder:
               "Briefly describe your idea and what problem it solves",
@@ -163,17 +183,20 @@ const StartupForm = () => {
           }}
         />
 
-        {errors.pitch && <p className="startup-form_error">{errors.pitch}</p>}
+        {errors.pitch && (
+          <p className="mt-2 ml-5 text-red-500">{errors.pitch}</p>
+        )}
       </div>
-
-      <Button
-        type="submit"
-        className="startup-form_btn text-white"
-        disabled={isPending}
-      >
-        {isPending ? "Submitting..." : "Submit Your Pitch"}
-        <Send className="size-6 ml-2" />
-      </Button>
+      <div className="flex justify-center items-center p-5 pb-10 m-5">
+        <Button
+          type="submit"
+          className="flex justify-center items-center border active:text-red-200 text-neutral-100 border-white/[50] startup-form_btn hover:text-sky-400 hover:border-sky-500"
+          disabled={isPending}
+        >
+          {isPending ? "Submitting..." : "Submit Your Pitch"}
+          <Send className="ml-2 size-6" color="#0ea5e9" />
+        </Button>
+      </div>
     </form>
   );
 };

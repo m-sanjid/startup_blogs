@@ -21,24 +21,28 @@ const StartupCard = ({ post }: { post: StartupTypeCard }) => {
   } = post;
 
   return (
-    <li className="bg-white border-[5px] border-black py-6 px-5 rounded-[22px] shadow-200 hover:border-primary transition-all duration-500 hover:shadow-300 hover:bg-blue-500 group">
+    <li className="py-6 px-5 border transition-all duration-500 bg-white/5 backdrop-blur-sm border-white/[0.5] rounded-[22px] shadow-200 hover:border-sky-300 hover:shadow-300 hover:bg-white/20 hover:backdrop-blur-sm">
       <div className="flex justify-between items-center">
-        <p className="font-medium text-[16px] bg-blue-500 px-4 py-2 rounded-full group-hover:bg-slate-400">
+        <p className="py-2 px-4 font-medium bg-black rounded-full hover:bg-transparent text-[16px] text-slate-300">
           {formatDate(_createdAt)}
         </p>
         <div className="flex gap-1.5">
-          <EyeIcon className="size-6 text-primary" />
-          <span className="text-16-medium">{views}</span>
+          <EyeIcon className="text-white size-6 hover:border-sky-300" />
+          <span className="font-medium text-white">{views}</span>
         </div>
       </div>
 
-      <div className="flex justify-between items-center mt-5 gap-5">
+      <div className="flex gap-5 justify-between items-center mt-5">
         <div className="flex-1">
           <Link href={`/user/${author?._id}`}>
-            <p className="text-16-medium line-clamp-1">{author?.name}</p>
+            <p className="font-medium text-white text-m line-clamp-1">
+              {author?.name}
+            </p>
           </Link>
           <Link href={`/startup/${_id}`}>
-            <h3 className="text-26-semibold line-clamp-1">{title}</h3>
+            <h3 className="text-white text-[26px] 1font-semibold line-clamp-1">
+              {title}
+            </h3>
           </Link>
         </div>
         <Link href={`/user/${author?._id}`}>
@@ -53,27 +57,28 @@ const StartupCard = ({ post }: { post: StartupTypeCard }) => {
       </div>
 
       <Link href={`/startup/${_id}`}>
-        <p className="font-normal text-[16px] line-clamp-2 my-3 text-black-100 break-all">
+        <p className="my-3 font-normal text-white break-all text-[16px] line-clamp-2">
           {description}
         </p>
 
         <img
           src={image}
           alt="placeholder"
-          className="w-full h-[164px] rounded-[10px] object-cover"
+          className="object-cover w-full h-[164px] rounded-[10px]"
         />
       </Link>
 
-      <div className="flex justify-between items-center gap-3 mt-5">
+      <div className="flex gap-3 justify-between items-center mt-5">
         <Link href={`/?query=${category?.toLowerCase()}`}>
-          <p className="text-16-medium">{category}</p>
+          <p className="font-medium text-white text-[16]">{category}</p>
         </Link>
         <Button
-          className="rounded-full bg-black-200 font-medium text-[16px] text-white px-5 py-3"
+          className="py-3 px-5 font-medium text-white rounded-full border border-white/[0.5] bg-black-200 text-[16px] hover:border-sky-400"
           asChild
         >
           <Link href={`/startup/${_id}`}>Details</Link>
         </Button>
+        <span className="absolute inset-x-0 -bottom-px mx-auto w-1/2 h-px bg-gradient-to-r from-transparent via-blue-500 to-transparent" />
       </div>
     </li>
   );

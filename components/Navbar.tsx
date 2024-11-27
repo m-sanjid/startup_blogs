@@ -8,18 +8,24 @@ const Navbar = async () => {
   const session = await auth();
 
   return (
-    <header className="px-5 py-3 bg-white shadow-sm font-work-sans">
+    <header className="sticky py-3 px-5 w-screen bg-black shadow-md hover:shadow-lg backdrop-blur-lg shadow-cyan-500/50 font-work-sans hover:border-b-1 hover:border-cyan-500/50 hover:shadow-cyan-500/50">
       <nav className="flex justify-between items-center">
         <Link href="/">
-          <Image src="/logo.png" alt="logo" width={144} height={30} />
+          <Image
+            className="p-0 m-0 rounded-lg border-cyan-500 shadow-md outline-none border-b-1 shadow-cyan-500"
+            src="/logo.png"
+            alt="logo"
+            width={120}
+            height={30}
+          />
         </Link>
 
-        <div className="flex items-center gap-5 text-black">
+        <div className="flex gap-5 items-center text-cyan-600">
           {session && session?.user ? (
             <>
               <Link href="/startup/create">
                 <span className="max-sm:hidden">Create</span>
-                <BadgePlus className="size-6 sm:hidden" />
+                <BadgePlus className="sm:hidden size-6" />
               </Link>
 
               <form
@@ -31,7 +37,7 @@ const Navbar = async () => {
               >
                 <button type="submit">
                   <span className="max-sm:hidden">Logout</span>
-                  <LogOut className="size-6 sm:hidden text-red-500" />
+                  <LogOut className="text-cyan-600 sm:hidden size-6" />
                 </button>
               </form>
 
