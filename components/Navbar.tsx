@@ -3,24 +3,28 @@ import Image from "next/image";
 import { auth, signOut, signIn } from "@/auth";
 import { BadgePlus, LogOut } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import ToggleTheme from "./ToggleTheme";
 
 const Navbar = async () => {
   const session = await auth();
 
   return (
-    <header className="sticky py-3 px-5 w-screen bg-black shadow-md hover:shadow-lg backdrop-blur-lg shadow-cyan-500/50 font-work-sans hover:border-b-1 hover:border-cyan-500/50 hover:shadow-cyan-500/50">
+    <header className="fixed z-10 py-2 px-5 w-screen max-h-14 shadow-md hover:shadow-lg bg-white/10 backdrop-blur-lg shadow-blue-500/50 font-work-sans hover:border-b-1 hover:border-blue-500/50 hover:shadow-blue-500/50">
       <nav className="flex justify-between items-center">
-        <Link href="/">
-          <Image
-            className="p-0 m-0 rounded-lg border-cyan-500 shadow-md outline-none border-b-1 shadow-cyan-500"
-            src="/logo.png"
-            alt="logo"
-            width={120}
-            height={30}
-          />
-        </Link>
+        <div className="flex gap-2 justify-between items-center p-0 m-0 felx-row">
+          <Link href="/">
+            <Image
+              className="p-0 pt-1 m-0 rounded-lg border-b-0 border-blue-500 shadow-md outline-none bg-neutral-300 shadow-blue-500"
+              src="/logo.png"
+              alt="logo"
+              width={100}
+              height={20}
+            />
+          </Link>
+          <ToggleTheme />
+        </div>
 
-        <div className="flex gap-5 items-center text-cyan-600">
+        <div className="flex gap-5 items-center text-blue-600">
           {session && session?.user ? (
             <>
               <Link href="/startup/create">
@@ -37,7 +41,7 @@ const Navbar = async () => {
               >
                 <button type="submit">
                   <span className="max-sm:hidden">Logout</span>
-                  <LogOut className="text-cyan-600 sm:hidden size-6" />
+                  <LogOut className="text-blue-600 sm:hidden size-6" />
                 </button>
               </form>
 

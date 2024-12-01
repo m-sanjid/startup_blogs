@@ -3,7 +3,6 @@ import StartupCard, { StartupTypeCard } from "@/components/StartupCard";
 import { STARTUPS_QUERY } from "@/sanity/lib/queries";
 import { sanityFetch, SanityLive } from "@/sanity/lib/live";
 import { auth } from "@/auth";
-import { FloatingNav } from "@/components/Naaavbar";
 
 export default async function Home({
   searchParams,
@@ -20,8 +19,7 @@ export default async function Home({
   const { data: posts } = await sanityFetch({ query: STARTUPS_QUERY, params });
 
   return (
-    <div className="p-0 m-0 bg-gradient-to-r from-black via-blue-800 to-black">
-      <FloatingNav />
+    <div className="p-0 m-0 bg-gradient-to-r from-black via-blue-800 to-black dark:bg-white">
       <section className="w-full p-0 m-0 bg-inherit min-h-[530px] pattern flex justify-center items-center flex-col py-10 px-6;">
         <h1 className="py-3 px-6 my-5 max-w-5xl font-extrabold text-center text-white uppercase font-work-sans text-[36px] leading-[46px] sm:text-[54px] sm:leading-[64px]">
           Tell us about your startup

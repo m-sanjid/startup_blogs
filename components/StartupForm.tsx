@@ -79,19 +79,19 @@ const StartupForm = () => {
   return (
     <form
       action={formAction}
-      className="px-6 my-5 mx-auto space-y-8 max-w-2xl bg-transparent rounded-lg border md: min-w-[75%] border-blue-500 shadow-xl shadow-current"
+      className="px-6 my-5 mx-auto space-y-8 max-w-2xl bg-gradient-to-r from-white/10 via-white/5 to-white/10 backdrop-blur-sm rounded-lg border md: min-w-[75%] border-neutral-400/50 border-r-0 border-b-0 shadow-xl shadow-current"
     >
-      <div>
+      <div className="pt-2 mt-5">
         <label
           htmlFor="title"
-          className="ml-3 font-bold text-neutral-300 text-[18px]"
+          className="ml-3 text-sm font-medium leading-none text-white text-[18px]"
         >
           Title
         </label>
         <Input
           id="title"
           name="title"
-          className="py-7 px-5 mt-3 font-semibold rounded-lg hover:border-blue-500 text-b border-[1px] border-white/[0.5] text-[18px] placeholder:text-[25px] placeholder:font-medium placeholder:text-black-300"
+          className="flex py-2 px-3 mt-1 w-full h-16 text-sm text-white rounded-md border-none transition focus-visible:outline-none bg-zinc-800 shadow-input placeholder-text-neutral-600 shadow-[0px_0px_1px_1px_var(--neutral-700)] duration-400 group-hover/input:shadow-none focus-visible:ring-[1.5px] focus-visible:ring-neutral-600"
           required
           placeholder="Startup Title"
         />
@@ -104,14 +104,14 @@ const StartupForm = () => {
       <div>
         <label
           htmlFor="description"
-          className="ml-3 font-bold text-neutral-300 text-[18px]"
+          className="ml-3 text-sm font-medium leading-none text-white text-[18px]"
         >
           Description
         </label>
         <Textarea
           id="description"
           name="description"
-          className="p-5 mt-3 font-semibold rounded-lg border-white/[.50] text-neutral-50 border-[2px] text-[18px] placeholder:text-black-300"
+          className="flex py-2 px-5 mt-1 w-full h-20 text-sm text-white rounded-md border-none transition focus-visible:outline-none bg-zinc-800 shadow-input placeholder-text-neutral-600 shadow-[0px_0px_1px_1px_var(--neutral-700)] duration-400 group-hover/input:shadow-none focus-visible:ring-[1.5px] focus-visible:ring-neutral-600"
           required
           placeholder="Startup Description"
         />
@@ -124,14 +124,14 @@ const StartupForm = () => {
       <div>
         <label
           htmlFor="category"
-          className="ml-3 font-bold text-neutral-300 text-[18px]"
+          className="ml-3 text-sm font-medium leading-none text-white text-[18px]"
         >
           Category
         </label>
         <Input
           id="category"
           name="category"
-          className="py-7 px-5 mt-3 font-semibold rounded-lg hover:border-blue-500 text-b border-[1px] border-white/[0.5] text-[18px] placeholder:text-[25px] placeholder:font-medium placeholder:text-black-300"
+          className="flex py-2 px-5 mt-1 w-full h-16 text-sm text-white rounded-md border-none transition focus-visible:outline-none bg-zinc-800 shadow-input placeholder-text-neutral-600 shadow-[0px_0px_1px_1px_var(--neutral-700)] duration-400 group-hover/input:shadow-none focus-visible:ring-[1.5px] focus-visible:ring-neutral-600"
           required
           placeholder="Startup Category (Tech, Health, Education...)"
         />
@@ -144,14 +144,14 @@ const StartupForm = () => {
       <div>
         <label
           htmlFor="link"
-          className="ml-3 font-bold text-neutral-300 text-[18px]"
+          className="ml-3 text-sm font-medium leading-none text-white text-[18px]"
         >
           Image URL
         </label>
         <Input
           id="link"
           name="link"
-          className="py-7 px-5 mt-3 font-semibold rounded-lg hover:border-blue-500 text-b border-[1px] border-white/[0.5] text-[18px] placeholder:text-[25px] placeholder:font-medium placeholder:text-black-300"
+          className="flex py-2 px-5 mt-1 w-full h-16 text-sm text-white rounded-md border-none transition focus-visible:outline-none bg-zinc-800 shadow-input placeholder-text-neutral-600 shadow-[0px_0px_1px_1px_var(--neutral-700)] duration-400 group-hover/input:shadow-none focus-visible:ring-[1.5px] focus-visible:ring-neutral-600"
           required
           placeholder="Startup Image URL"
         />
@@ -162,7 +162,7 @@ const StartupForm = () => {
       <div data-color-mode="light">
         <label
           htmlFor="pitch"
-          className="ml-3 font-bold text-neutral-300 text-[18px]"
+          className="ml-3 text-sm font-medium leading-none text-white text-[18px]"
         >
           Pitch
         </label>
@@ -190,7 +190,7 @@ const StartupForm = () => {
       <div className="flex justify-center items-center p-5 pb-10 m-5">
         <Button
           type="submit"
-          className="flex justify-center items-center border active:text-red-200 text-neutral-100 border-white/[50] startup-form_btn hover:text-sky-400 hover:border-sky-500"
+          className="flex justify-center items-center w-1/2 h-12 bg-gradient-to-l border active:text-red-200 text-neutral-100 border-white/[50] from-white/20 via-white/15 to-white/10 backdrop-blur-lg startup-form_btn hover:text-sky-400 hover:border-sky-500"
           disabled={isPending}
         >
           {isPending ? "Submitting..." : "Submit Your Pitch"}
